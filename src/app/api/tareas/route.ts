@@ -34,10 +34,10 @@ export const GET = async () => {
 
         // Devuelve una respuesta JSON con todas las tareas
         // e indica que fue exitosa (ok) la solicitud
-        return Response.json({ ok: true, res: tareas })
+        return Response.json({ res: tareas })
     } catch (error: any) {
 
         //indica que no fue exitosa (ok = false) la solicitud y retorna el nombre del error
-        return Response.json({ ok: false, "error":{nombre:error.name,mensaje:error.message}})
+        return Response.json({ "error":{nombre:error.name,mensaje:error.message}},{status:500})
     }
 }
