@@ -1,5 +1,7 @@
 import { TareaTypeApi } from "@/types/TareaTypes";
 import axios from "axios";
+import dotenv from "dotenv"
+dotenv.config()
 
 /**
  * Hook personalizado para crear una tarea.
@@ -17,7 +19,7 @@ export function useCrearTarea() {
             // Se utiliza la api para que esta se encargue de almacenar el objeto
             const respuesta = await axios({
                 method: "post",
-                url: "http://localhost:3000/api/tareas/",
+                url: `${process.env.API_DOMAIN}/api/tareas/`,
                 data: datos
             })
 

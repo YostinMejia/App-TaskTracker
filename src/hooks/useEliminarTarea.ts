@@ -1,5 +1,6 @@
 import axios from "axios";
-
+import dotenv from "dotenv"
+dotenv.config()
 /**
  * Hook personalizado para eliminar una tarea.
  * 
@@ -9,13 +10,13 @@ import axios from "axios";
  */
 export function useEliminarTarea() {
 
-    const eliminarTarea = async (id: string):Promise<void> => {
+    const eliminarTarea = async (id: string): Promise<void> => {
         try {
-            
+
             // Se envía una solicitud DELETE al servidor para eliminar la tarea que tiene el mismo id.
             const respuesta = await axios({
                 method: "delete",
-                url: `http://localhost:3000/api/tareas/2`,
+                url: `${process.env.API_DOMAIN}/api/tareas/${id}`,
             })
         }
         catch (e) {
@@ -39,7 +40,7 @@ export function useEliminarTarea() {
             entonces este es el que se va a mostrar, de lo contrario, se muestra  "error al intentar elimar el" 
             
             */
-            throw new Error(!!errorMensaje ? errorMensaje: "error al intentar elimar el" );
+            throw new Error(!!errorMensaje ? errorMensaje : "error al intentar elimar el");
         }
     }
 
