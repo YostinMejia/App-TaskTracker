@@ -1,7 +1,5 @@
+import { postTarea } from "@/services/postTarea";
 import { TareaTypeApi } from "@/types/TareaTypes";
-import axios from "axios";
-import dotenv from "dotenv"
-dotenv.config()
 
 /**
  * Hook personalizado para crear una tarea.
@@ -11,42 +9,6 @@ dotenv.config()
  * 
  */
 export function useCrearTarea() {
-
-    const apiPostTarea = async (datos: TareaTypeApi): Promise<void> => {
-
-        try {
-
-            // Se utiliza la api para que esta se encargue de almacenar el objeto
-            const respuesta = await axios({
-                method: "post",
-                url: `${process.env.API_DOMAIN}/api/tareas/`,
-                data: datos
-            })
-
-        } catch (e) {
-            let errorMensaje;
-
-            if (axios.isAxiosError(e)) {
-
-                /*
-                si el error proviene de la api esta retorna un objeto llamado error
-                con el nombre y mensaje de este
-                */
-                if (!e.response?.data.error) {
-                    errorMensaje = `${e.response?.status}: ${e.response?.statusText}`
-                }
-                /*si el error no es de la api entonces obtenemos el error de axios status y staturText */
-                errorMensaje = `${e.response?.status}: ${e.response?.statusText}`;
-            }
-            /*
-            si anteriormente se definió un mensaje de error, 
-            entonces este es el que se va a mostrar, de lo contrario, se muestra  "error al intentar elimar el" 
-            
-            */
-            throw new Error(!!errorMensaje ? errorMensaje : "error al intentar elimar el");
-        }
-
-    }
 
     const crearTarea = async (tareaFormData: FormData, fechaInicio: Date, fechaFinal: Date): Promise<void> => {
 
@@ -75,7 +37,7 @@ export function useCrearTarea() {
             fechaFinalizacion: fechaFinal
         }
 
-        await apiPostTarea(tarea);
+        await postTarea(tarea);
 
     }
 

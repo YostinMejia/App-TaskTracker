@@ -15,7 +15,7 @@ import Button from "@/components/common/Button";
 
  * */
 export default function TareaUl({ tareaLista }: { tareaLista: TareaTypeApi[] }) {
-    //Hook para eliminar las tareas
+    //Hook para eliminar las tareas    
     const eliminarTarea = useEliminarTarea()
 
     const router = useRouter();
@@ -27,6 +27,7 @@ export default function TareaUl({ tareaLista }: { tareaLista: TareaTypeApi[] }) 
         router.refresh()
     }
 
+    
     return (
         <ul>
             {tareaLista.map((tarea: TareaTypeApi, index: number) => (

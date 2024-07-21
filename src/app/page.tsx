@@ -1,5 +1,5 @@
 import TareaForm from "@/containers/TareaForm";
 
-export default function Home() {
+export default function Inicio() {
   return <TareaForm/>
 }
