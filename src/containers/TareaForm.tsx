@@ -7,6 +7,8 @@ import DatePicker from "react-datepicker";
 import Input from "../components/common/Input";
 import Button from "../components/common/Button";
 import { useCrearTarea } from "@/hooks/useCrearTarea";
+import { useRouter } from "next/navigation";
+
 
 /**
  * Componente para crear una nueva tarea.
@@ -21,6 +23,7 @@ export default function TareaForm() {
     // Estado para el contador de datos y la fecha seleccionada
     const [fechaInicio, setFechaInicio] = useState(new Date());
     const [fechaFinal, setFechaFinal] = useState(new Date());
+    const router = useRouter();
 
     //Hook para crear una tarea
     const crearTarea = useCrearTarea()
@@ -40,7 +43,8 @@ export default function TareaForm() {
         // Se convierten los datos del formulario en una clase FormData para luego ser accedidos en el hook
         const tareaFormData = new FormData(event.currentTarget)
         // hook que se encarga del almacenamiento de la tarea y manejar los errores que puedan suceder
-        await crearTarea(tareaFormData, fechaInicio, fechaFinal)
+        await crearTarea(tareaFormData, fechaInicio, fechaFinal)        
+        router.push("/home")
     }
 
     return (

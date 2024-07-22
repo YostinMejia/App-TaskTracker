@@ -19,7 +19,7 @@ export const postTarea = async (datos: TareaTypeApi): Promise<void> => {
 
     } catch (error: any) {
         let errorMensaje;
-
+        
         if (axios.isAxiosError(error)) {
             if (error.response) {
                 errorMensaje = `Error ${error.response.status}: ${error.response.statusText}`;
