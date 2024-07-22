@@ -30,12 +30,12 @@ export default function TareaUl({ tareaLista }: { tareaLista: TareaTypeApi[] }) 
 
     return (
         <ul>
-            {tareaLista.map((tarea: TareaTypeApi, index: number) => (
+            {tareaLista.map((tarea: TareaTypeApi, index: number) => (                
                 <li key={index} >
                     <h2>{tarea.titulo}</h2>
                     <p>{tarea.descripcion}</p>
-                    <p>Creado: {new Date(tarea.fechaInicializacion).toDateString()}</p>
-                    <p>Finalización: {new Date(tarea.fechaFinalizacion).toDateString()}</p>
+                    <p>Creado: {tarea.fechaInicializacion}</p>
+                    <p>Finalización: {tarea.fechaInicializacion}</p>
                     <Button text="Eliminar tarea" onClick={() => handleClick(tarea.id!)} />
                 </li>
             ))}

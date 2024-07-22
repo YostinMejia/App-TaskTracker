@@ -33,8 +33,8 @@ export function useCrearTarea() {
         const tarea: TareaTypeApi = {
             titulo: titulo.toString(),
             descripcion: descripcion.toString(),
-            fechaInicializacion: fechaInicio,
-            fechaFinalizacion: fechaFinal
+            fechaInicializacion: fechaInicio.toISOString(),
+            fechaFinalizacion: fechaFinal.toISOString()
         }
 
         await postTarea(tarea);

@@ -10,6 +10,6 @@ export type TareaTypeApi = {
     id?: string
     titulo: string;
     descripcion: string;
-    fechaInicializacion: Date;
-    fechaFinalizacion: Date;
+    fechaInicializacion: String;
+    fechaFinalizacion: String;
 }
