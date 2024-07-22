@@ -16,9 +16,6 @@ export const postTarea = async (datos: TareaTypeApi): Promise<void> => {
             url: `${apiUrl}/api/tareas`,
             data: datos
         })
-        console.log("post");
-        console.log(respuesta.status);
-        console.log(respuesta.data);
 
     } catch (error: any) {
         let errorMensaje;
