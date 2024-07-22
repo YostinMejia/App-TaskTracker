@@ -23,6 +23,8 @@ export default function TareaUl({ tareaLista }: { tareaLista: TareaTypeApi[] }) 
     const handleClick = async (id: string) => {
         // elimina la tarea y maneja los errores que puedan ocurrir
         await eliminarTarea(id)
+        console.log("Ya se eliminó la vuelta");
+        
         //carga nuevamente esta página
         router.refresh()
     }

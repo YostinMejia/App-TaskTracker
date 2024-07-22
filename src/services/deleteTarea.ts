@@ -12,6 +12,9 @@ export const deleteTarea = async (id: string): Promise<void> => {
             method: "delete",
             url: `${apiUrl}/api/tareas/${id}`,
         })
+        console.log("delete");
+        console.log(respuesta.status);
+        console.log(respuesta.data);
     }
     catch (error) {
         let errorMensaje;

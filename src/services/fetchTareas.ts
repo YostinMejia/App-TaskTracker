@@ -6,12 +6,15 @@ export const fetchTareas = async (): Promise<TareaTypeApi[]> => {
     try {
 
         const apiUrl = process.env.NEXT_PUBLIC_API;
-        
+
         if (!apiUrl) {
             throw new Error("La variable de entorno NEXT_PUBLIC_API no está definida.");
         }
         // Se envía una solicitud GET al servidor para obtener todas las tareas.
         const respuesta = await axios.get(`${apiUrl}/api/tareas`)
+        console.log("fetch");
+        console.log(respuesta.status);
+        console.log(respuesta.data);
 
         // Se extrae la lista de tareas del cuerpo de la respuesta.
         const { data: { res } } = respuesta;
