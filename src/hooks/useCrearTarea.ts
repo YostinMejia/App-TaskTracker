@@ -38,7 +38,6 @@ export function useCrearTarea() {
         }
 
         await postTarea(tarea);
-
     }
 
     return crearTarea
