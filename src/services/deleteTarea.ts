@@ -6,7 +6,7 @@ export const deleteTarea = async (id: string): Promise<void> => {
         // Se envía una solicitud DELETE al servidor para eliminar la tarea que tiene el mismo id.
         const respuesta = await axios({
             method: "delete",
-            url: `${process.env.NEXT_PUBLIC_API_DOMAIN}/api/tareas/${id}`,
+            url: `${process.env.NEXT_PUBLIC_API}/api/tareas/${id}`,
         })
     }
     catch (error) {

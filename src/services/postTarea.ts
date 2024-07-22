@@ -8,7 +8,7 @@ export const postTarea = async (datos: TareaTypeApi): Promise<void> => {
         // Se utiliza la api para que esta se encargue de almacenar el objeto
         const respuesta = await axios({
             method: "post",
-            url: `${process.env.NEXT_PUBLIC_API_DOMAIN}/api/tareas`,
+            url: `${process.env.NEXT_PUBLIC_API}/api/tareas`,
             data: datos
         })
 

@@ -5,7 +5,7 @@ export const fetchTareas = async (): Promise<TareaTypeApi[]> => {
 
     try {
         // Se envía una solicitud GET al servidor para obtener todas las tareas.
-        const respuesta = await axios.get(`${process.env.NEXT_PUBLIC_API_DOMAIN}/api/tareas/`)
+        const respuesta = await axios.get(`${process.env.NEXT_PUBLIC_API}/api/tareas/`)
 
         // Se extrae la lista de tareas del cuerpo de la respuesta.
         const { data: { res } } = respuesta;
