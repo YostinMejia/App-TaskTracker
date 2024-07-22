@@ -2,11 +2,15 @@ import axios from "axios";
 
 export const deleteTarea = async (id: string): Promise<void> => {
     try {
+        const apiUrl = process.env.NEXT_PUBLIC_API;
 
+        if (!apiUrl) {
+            throw new Error("La variable de entorno NEXT_PUBLIC_API no está definida.");
+        }
         // Se envía una solicitud DELETE al servidor para eliminar la tarea que tiene el mismo id.
         const respuesta = await axios({
             method: "delete",
-            url: `${process.env.NEXT_PUBLIC_API_DOMAIN}/api/tareas/${id}`,
+            url: `${process.env.NEXT_PUBLIC_API}/api/tareas/${id}`,
         })
     }
     catch (error) {
@@ -23,7 +27,7 @@ export const deleteTarea = async (id: string): Promise<void> => {
                 // Algo pasó al preparar la petición
                 errorMensaje = error.message;
             }
-        } 
+        }
         /*
         si anteriormente se definió un mensaje de error, 
         entonces este es el que se va a mostrar, de lo contrario, se muestra  "error al intentar elimar el" 

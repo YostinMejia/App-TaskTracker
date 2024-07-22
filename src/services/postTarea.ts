@@ -4,11 +4,16 @@ import axios from "axios";
 export const postTarea = async (datos: TareaTypeApi): Promise<void> => {
 
     try {
+        const apiUrl = process.env.NEXT_PUBLIC_API;
 
+        if (!apiUrl) {
+            throw new Error("La variable de entorno NEXT_PUBLIC_API no está definida.");
+        }
+        
         // Se utiliza la api para que esta se encargue de almacenar el objeto
         const respuesta = await axios({
             method: "post",
-            url: `${process.env.NEXT_PUBLIC_API_DOMAIN}/api/tareas`,
+            url: `${apiUrl}/api/tareas`,
             data: datos
         })
 
