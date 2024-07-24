@@ -16,7 +16,7 @@ export const deleteTarea = async (id: string): Promise<void> => {
     }
     catch (error) {
         let errorMensaje;
-
+                
         // Verifica si el error es un error de Axios.
         if (axios.isAxiosError(error)) {
             if (error.response) {
